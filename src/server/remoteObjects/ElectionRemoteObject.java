@@ -11,7 +11,7 @@ public class ElectionRemoteObject extends UnicastRemoteObject implements Electio
 	public Candidate[] candidates;
 	
 	// --- Methods ---
-	protected ElectionRemoteObject() throws RemoteException {
+	public ElectionRemoteObject() throws RemoteException {
 		super();
 	}
 
