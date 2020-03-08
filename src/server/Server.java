@@ -7,7 +7,7 @@ import server.remoteInterfaces.ElectionRemoteInterface;
 import server.remoteObjects.ElectionRemoteObject;
 
 public class Server {
-	private static final int PORT = 4242;
+	private static final int PORT = 1099;
 	
 	public static void main(String[] args) {
 		try {			
