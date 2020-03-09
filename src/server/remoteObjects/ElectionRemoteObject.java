@@ -10,6 +10,7 @@ import server.remoteInterfaces.ElectionRemoteInterface;
 public class ElectionRemoteObject extends UnicastRemoteObject implements ElectionRemoteInterface {
 	// --- Attributes ---
 	public ArrayList<Candidate> candidates = new ArrayList<>();
+	public ArrayList<Integer> voters = new ArrayList<>();
 	
 	// --- Methods ---
 	public ElectionRemoteObject() throws RemoteException {
@@ -27,8 +28,18 @@ public class ElectionRemoteObject extends UnicastRemoteObject implements Electio
 
 	@Override
 	public boolean vote(String nameCandidate, int hashVoter) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		if(voters.contains(hashVoter))
+			return false;
+		
+		for (Candidate c: candidates) {
+			if(c.name.equals(nameCandidate)) {
+				c.votes++;
+				voters.add(hashVoter);
+				break;
+			}
+		}
+		
+		return true;
 	}
 
 	@Override
