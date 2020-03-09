@@ -2,10 +2,11 @@ package server.remoteInterfaces;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ElectionRemoteInterface extends Remote {
-	String[] candidates() throws RemoteException;
+	ArrayList<String> candidates() throws RemoteException;
 	
 	boolean vote(String nameCandidate, int hashVoter) throws RemoteException;
 	

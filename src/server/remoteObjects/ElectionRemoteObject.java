@@ -1,6 +1,7 @@
 package server.remoteObjects;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 import server.Candidate;
@@ -8,7 +9,7 @@ import server.remoteInterfaces.ElectionRemoteInterface;
 
 public class ElectionRemoteObject extends UnicastRemoteObject implements ElectionRemoteInterface {
 	// --- Attributes ---
-	public Candidate[] candidates;
+	public ArrayList<Candidate> candidates = new ArrayList<>();
 	
 	// --- Methods ---
 	public ElectionRemoteObject() throws RemoteException {
@@ -16,9 +17,12 @@ public class ElectionRemoteObject extends UnicastRemoteObject implements Electio
 	}
 
 	@Override
-	public String[] candidates() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<String> candidates() throws RemoteException {
+		ArrayList<String> names = new ArrayList<>();
+		for (Candidate c : candidates)
+			names.add(c.name);
+		
+		return names;
 	}
 
 	@Override
