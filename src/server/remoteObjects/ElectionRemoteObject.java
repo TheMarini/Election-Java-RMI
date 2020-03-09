@@ -2,6 +2,7 @@ package server.remoteObjects;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import server.Candidate;
@@ -43,9 +44,9 @@ public class ElectionRemoteObject extends UnicastRemoteObject implements Electio
 	}
 
 	@Override
-	public List<List<String>> result() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Candidate> result() throws RemoteException {
+		candidates.sort((c1, c2) -> c1.votes - c2.votes);
+		return candidates;
 	}
 
 }
