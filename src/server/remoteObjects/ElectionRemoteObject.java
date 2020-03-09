@@ -16,6 +16,13 @@ public class ElectionRemoteObject extends UnicastRemoteObject implements Electio
 	// --- Methods ---
 	public ElectionRemoteObject() throws RemoteException {
 		super();
+		
+		// Example candidates
+		candidates.add(new Candidate("Bruno"));
+		candidates.add(new Candidate("Carlos"));
+		candidates.add(new Candidate("Maria"));
+		candidates.add(new Candidate("Joao"));
+		candidates.add(new Candidate("Eduarda"));
 	}
 
 	@Override
